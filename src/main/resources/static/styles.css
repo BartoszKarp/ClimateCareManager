@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 30px;
+    background: #1d2b3a;
+}
+.GenerateShortUrl
+{
+    text-align: center;
+    position: relative;
+    color: #00dfc4;
+}
+.GenerateYourOwnShortUrl
+{
+    text-align: center;
+    position: relative;
+    color: #00dfc4;
+}
+.inputBox
+{
+    text-align: center;
+    position: relative;
+    color: #00dfc4;
+}
+.tableBox
+{
+    text-align: left;
+    position: relative;
+    color: #00dfc4;
+}
+.labelBox
+{
+    text-align: center;
+    position: relative;
+    color: #00dfc4;
+}
+.inputBox
+{
+    text-align: center;
+    position: relative;
+    color: #00dfc4;
+}
+.modal-header {
+    text-align: center;
+}
+
+.title-and-labels {
+    display: inline-block;
+}
+
+.title-and-labels h1 {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.title-and-labels label {
+    display: block;
+    margin-bottom: 5px;
+}
+.inputBox
+{
+    position: relative;
+    width: 350px;
+}
+.inputBox input
+{
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #1d2b3a;
+    border-radius: 10px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+}
+.inputBox span
+{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span
+{
+    color: #00dfc4;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #1d2b3a;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
+    letter-spacing: 0.2em;
+}
+.inputBox input:valid,
+.inputBox input:focus
+{
+    border: 1px solid #00dfc4;
+}
+.inputBox:nth-child(2) input:valid ~ span,
+.inputBox:nth-child(2) input:focus ~ span
+{
+    background: #00dfc4;
+    color: #1d2b3a;
+    border-radius: 2px;
+}
+
+.inputSubmit input
+{
+    width: 150px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #1d2b3a;
+    border-radius: 10px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+
+}
+.inputSubmitDelete input
+{
+    width: 70px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #1d2b3a;
+    border-radius: 10px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+
+}
+.inputSubmit input:hover
+{
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #00dfc4;
+    background: #1d2b3a;
+    border-radius: 10px;
+    outline: none;
+    color: #00dfc4;
+    font-size: 1em;
+}
+.inputSubmitDelete input:hover
+{
+    width: 70px;
+    padding: 4px;
+    border: 1px solid #00dfc4;
+    background: #1d2b3a;
+    border-radius: 10px;
+    outline: none;
+    color: #00dfc4;
+    font-size: 1em;
+}
+
+.containerURL {
+      width: 500px; /* Ustawienie szerokości kontenera na 600 pikseli */
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #00dfc4; /* Grubość i kolor ramki */
+      border-radius: 15px; /* Zaokrąglone narożniki */
+      background-color: #1d2b3a; /* Kolor tła */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .inputBox {
+      margin-bottom: 10px;
+
+    }
+
+    .inputBox input {
+      width: 100%;
+      padding: 5px;
+    }
+
+    .inputBox span {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .inputSubmit {
+    display: flex;
+    justify-content: center;
+    text-align: right;
+    }
+
+.inputSubmitDelete {
+    display: flex;
+    justify-content: center;
+    text-align: right;
+}
+
+
+
+
