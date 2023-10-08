@@ -1,9 +1,7 @@
 package pl.karpiu.climatecaremanager.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,46 +12,51 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import pl.karpiu.climatecaremanager.domain.model.Customer;
-import pl.karpiu.climatecaremanager.dto.CustomerDto;
+import pl.karpiu.climatecaremanager.dto.CustomerDtoWithoutId;
+import pl.karpiu.climatecaremanager.dto.CustomerNameDto;
 import pl.karpiu.climatecaremanager.service.CustomerService;
 
 import java.util.List;
 import java.util.UUID;
 
+import static pl.karpiu.climatecaremanager.dto.CustomerDtoMapper.*;
+
 @RestController
-@RequestMapping(path = "api/v1/customers")
+@RequestMapping(path = "api/v1")
 @RequiredArgsConstructor
 public class CustomerApiController {
 
     private final CustomerService customerService;
 
-    @GetMapping
-    public List<CustomerDto> getCustomers(){
-        return customerService.getCustomers();
+    @GetMapping(path = "/customers")
+    public List<CustomerDtoWithoutId> getCustomers(){
+        return mapCustomerToCustomerWithoutId(customerService.getCustomers());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(path = "/customers/names")
+    public List<CustomerNameDto> getCustomersNames(){
+        return mapCustomerToCustomerNameDto(customerService.getCustomers());
+    }
+
+    @GetMapping("/customers/{id}")
     public Customer getCustomer(@PathVariable UUID id){
         return customerService.getCustomerById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CustomerDto createCustomer(@RequestBody CustomerDto customerDto){
-        return customerService.createCustomer(customerDto);
+    public void CustomerDtoWithoutId(@RequestBody CustomerDtoWithoutId customerDtoWithoutId){
+        customerService.createCustomer(mapToCustomerWithoudId(customerDtoWithoutId));
     }
 
-    @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public Customer updateCustomer(@RequestBody Customer customer){
-        return customerService.updateCustomer(customer);
+    @PutMapping("/customers/{id}")
+    public void updateCustomer(@PathVariable UUID id, @RequestBody CustomerDtoWithoutId  customerDtoWithoutId){
+        customerService.updateCustomer(mapToCustomerWithId(id, customerDtoWithoutId));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/customers/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCustomer(@PathVariable UUID id){
         customerService.deleteCustomer(id);
     }
-
-
 }
